@@ -23,7 +23,7 @@
   </div>
   <h1>Vite + Svelte</h1>
   <div>
-    <h3>Hi Sean, hello, testing 5th deployment!</h3>
+    <h3>Hi Sean, hello, testing build caching deployment changes, switching back to nx</h3>
     <h4>{JSON.stringify(product)}</h4>
   </div>
   <div class="card">
