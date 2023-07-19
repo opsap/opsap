@@ -56,5 +56,6 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "useful-boa-58"
-          entrypoint: https://deno.land/std@0.157.0/http/file_server.ts # 📝 Update the entrypoint
-          root: "./apps/clients/deno-svelte/dist/" # 📝 Update the root
+          entrypoint: https://deno.land/std@0.157.0/http/file_server.ts/clients/deno-svelte # 📝 Update the entrypoint
+          root: "apps" # 📝 Update the root
+          import-map: "../import-map.json"
