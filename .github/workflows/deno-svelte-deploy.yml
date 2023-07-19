@@ -56,5 +56,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "useful-boa-58"
-          entrypoint: "index.html" # 📝 Update the entrypoint
-          root: "apps/clients/deno-svelte/dist" # 📝 Update the root
+          entrypoint: "./apps/clients/deno-svelte/dist/index.html" # 📝 Update the entrypoint
+          root: "." # 📝 Update the root
