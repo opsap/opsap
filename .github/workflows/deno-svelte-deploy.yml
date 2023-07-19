@@ -1,4 +1,4 @@
-name: Deploy DenoSvelte
+name: Deploy deno-svelte
 on:
   push:
     branches: main
@@ -56,5 +56,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "useful-boa-58"
-          entrypoint: "./apps/clients/deno-svelte/dist/index.html" # 📝 Update the entrypoint
-          root: "." # 📝 Update the root
+          entrypoint: "https://deno.land/std@0.157.0/http/file_server.ts dist/" # 📝 Update the entrypoint
+          root: "apps/clients/deno-svelte" # 📝 Update the root
