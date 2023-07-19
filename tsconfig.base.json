@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@opsap/shared/types": ["libs/shared/types/mod.ts"],
       "@opsap/shared/models": ["libs/shared/models/src/index.ts"],
+      "@opsap/shared/types": ["libs/shared/types/mod.ts"],
       "@opsap/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },

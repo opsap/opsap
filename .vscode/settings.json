@@ -1,10 +1,12 @@
 {
   "deno.enablePaths": [
     "apps/clients/deno-fresh",
+    "apps/clients/deno-svelte",
     "apps/services/products",
     "apps/services/users",
     "libs/shared/types",
-    "apps/services/posts"
+    "apps/services/posts",
+    "libs/test"
   ],
   "deno.config": "./apps/clients/deno-fresh/deno.json",
   "deno.unstable": true,

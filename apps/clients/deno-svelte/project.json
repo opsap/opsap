@@ -1,0 +1,43 @@
+{
+  "name": "clients-deno-svelte",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/clients/deno-svelte/src",
+  "projectType": "application",
+  "tags": ["web"],
+  "targets": {
+    "start": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "command": "deno task dev",
+        "outputPath": "dist/apps/clients/deno-svelte",
+        "cwd": "./apps/clients/deno-svelte"
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "command": "deno task build",
+        "outputPath": "dist/apps/clients/deno-svelte",
+        "cwd": "./apps/clients/deno-svelte"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/clients/deno-svelte/**/*.{ts,svelte,spec.ts}"
+        ]
+      }
+    },
+    "check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "svelte-check",
+        "cwd": "apps/clients/deno-svelte"
+      }
+    }
+  }
+}
