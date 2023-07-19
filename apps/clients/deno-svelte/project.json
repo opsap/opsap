@@ -23,6 +23,15 @@
         "cwd": "./apps/clients/deno-svelte"
       }
     },
+    "serve": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "command": "deno task serve",
+        "outputPath": "dist/apps/clients/deno-svelte",
+        "cwd": "./apps/clients/deno-svelte"
+      }
+    },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
