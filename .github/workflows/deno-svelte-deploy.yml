@@ -20,7 +20,10 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
+          
+      - name: Setup Deno
+        uses: maximousblk/setup-deno@v2 # Installs latest version
 
       - uses: pnpm/action-setup@v2
         name: Install pnpm
@@ -54,4 +57,4 @@ jobs:
         with:
           project: "useful-boa-58"
           entrypoint: "https://deno.land/std@0.188.0/http/file_server.ts" # 📝 Update the entrypoint
-          root: "dist" # 📝 Update the root
+          root: "./apps/clients/deno-svelte/dist" # 📝 Update the root
