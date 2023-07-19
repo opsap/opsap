@@ -1,0 +1,24 @@
+{
+  "name": "shared-types",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/types",
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nx/deno:test",
+      "outputs": ["coverage/libs/shared/types"],
+      "options": {
+        "coverageDirectory": "coverage/libs/shared/types",
+        "denoConfig": "libs/shared/types/deno.json",
+        "check": "local"
+      }
+    },
+    "lint": {
+      "executor": "@nx/deno:lint",
+      "options": {
+        "denoConfig": "libs/shared/types/deno.json"
+      }
+    }
+  },
+  "tags": []
+}

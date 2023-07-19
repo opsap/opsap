@@ -1,0 +1,97 @@
+{
+  "name": "clients-ssr-solid",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/clients/ssr-solid/src",
+  "projectType": "application",
+  "tags": ["web"],
+  "targets": {
+    "build1": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "command": "npm run build",
+        "outputPath": "dist/apps/clients/ssr-solid",
+        "cwd": "./apps/clients/ssr-solid"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/clients/ssr-solid/**/*.{ts,svelte,spec.ts}"]
+      }
+    },
+    "check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "svelte-check",
+        "cwd": "apps/clients/ssr-solid"
+      }
+    },
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/clients/ssr-solid"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "clients-ssr-solid:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "clients-web:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "clients-ssr-solid:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "clients-ssr-solid:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "clients-ssr-solid:build:development"
+        },
+        "production": {
+          "buildTarget": "clients-ssr-solid:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["coverage/apps/clients/web"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../../coverage/apps/clients/ssr-solid"
+      }
+    }
+  }
+}

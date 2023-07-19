@@ -1,0 +1,32 @@
+{
+  "deno.enablePaths": [
+    "apps/clients/deno-fresh",
+    "apps/services/products",
+    "apps/services/users",
+    "libs/shared/types",
+    "apps/services/posts"
+  ],
+  "deno.config": "./apps/clients/deno-fresh/deno.json",
+  "deno.unstable": true,
+  "deno.lint": true,
+  "deno.importMap": "./import_map.json",
+  "editor.defaultFormatter": "denoland.vscode-deno",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "[typescriptpreact]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "[javascriptpreact]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  }
+}

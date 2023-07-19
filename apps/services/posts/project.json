@@ -1,0 +1,39 @@
+{
+  "name": "services-posts",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/services/posts/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/deno:emit",
+      "outputs": ["dist/apps/services/posts"],
+      "options": {
+        "main": "apps/services/posts/src/main.ts",
+        "outputFile": "dist/apps/services/posts/main.js",
+        "denoConfig": "apps/services/posts/deno.json"
+      }
+    },
+    "serve": {
+      "executor": "@nx/deno:run",
+      "options": {
+        "buildTarget": "services-posts:build",
+        "watch": true
+      }
+    },
+    "test": {
+      "executor": "@nx/deno:test",
+      "outputs": ["coverage/apps/services/posts"],
+      "options": {
+        "coverageDirectory": "coverage/apps/services/posts",
+        "denoConfig": "apps/services/posts/deno.json"
+      }
+    },
+    "lint": {
+      "executor": "@nx/deno:lint",
+      "options": {
+        "denoConfig": "apps/services/posts/deno.json"
+      }
+    }
+  },
+  "tags": []
+}

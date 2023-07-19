@@ -1,0 +1,89 @@
+{
+  "name": "clients-deno-fresh",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/clients/deno-fresh/src",
+  "projectType": "application",
+  "tags": ["web"],
+  "targets": {
+    "start": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "command": "deno task start",
+        "outputPath": "dist/apps/clients/deno-fresh",
+        "cwd": "./apps/clients/deno-fresh"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/clients/deno-fresh/**/*.{ts,svelte,spec.ts}"]
+      }
+    },
+    "check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "svelte-check",
+        "cwd": "apps/clients/deno-fresh"
+      }
+    },
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/clients/deno-fresh"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "clients-deno-fresh:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "clients-web:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "clients-deno-fresh:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "clients-deno-fresh:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "clients-deno-fresh:build:development"
+        },
+        "production": {
+          "buildTarget": "clients-deno-fresh:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["coverage/apps/clients/web"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../../coverage/apps/clients/deno-fresh"
+      }
+    }
+  }
+}
