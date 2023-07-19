@@ -1,6 +1,14 @@
 <script lang="ts">
+  // @ts-ignore
   import svelteLogo from './assets/svelte.svg'
   import Counter from './lib/Counter.svelte'
+  import type { Product } from '../../../../libs/shared/types/mod'
+
+  const product: Product = {
+    name: 'Playstation',
+    price: 899,
+    quantity: 20
+  }
 </script>
 
 <main>
@@ -16,6 +24,7 @@
   <h1>Vite + Svelte</h1>
   <div>
     <h3>Hi Sean hello</h3>
+    <h4>{JSON.stringify(product)}</h4>
   </div>
   <div class="card">
     <Counter />
