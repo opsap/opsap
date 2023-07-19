@@ -51,6 +51,12 @@ jobs:
         
       - name: Build step
         run: pnpm exec nx run clients-deno-svelte:build  # 📝 Update the build command(s)
+        
+      - name: List dirs & files
+        run: |
+          pwd
+          cd clients/apps/deno-svelte
+          pwd
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
